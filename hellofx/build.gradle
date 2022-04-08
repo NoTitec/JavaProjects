@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.7'//fxplugininput
+    id 'application'//applicationplugininput
+}
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.lynden', name: 'GMapsFX', version: '2.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx{//javafx modules add
+    modules=['javafx.controls','javafx.fxml','javafx.web']
+    version= '11.0.2'
+}
+mainClassName='org.example.Main'//main classname input
